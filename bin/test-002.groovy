@@ -6,6 +6,6 @@ def helloWithoutParam() {
 }
 
 def helloWithParam(person, id) {
-    println "start to call helloWithParam, param{person:" + person + ", id:" + id + "}";
-    return "success, helloWithParam";
+    Random random = new Random()
+    return "success, helloWithParam " + "随机数为" + random.nextInt(1000000);
 }
