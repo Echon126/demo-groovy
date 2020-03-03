@@ -1,6 +1,5 @@
 package com.example.demo.utils;
 
-import com.example.demo.entity.Person;
 import groovy.lang.GroovyObject;
 import groovy.util.GroovyScriptEngine;
 import groovy.util.ResourceException;
@@ -20,8 +19,8 @@ public class GroovyCommonUtil {
     /**
      * 该变量用于指明groovy脚本所在的父目录
      */
-    static String root[] = new String[]{"bin/groovy/"};
-    static GroovyScriptEngine groovyScriptEngine;
+    private static String[] root = new String[]{"bin/groovy/"};
+    private static GroovyScriptEngine groovyScriptEngine;
 
     static {
         try {
@@ -33,9 +32,9 @@ public class GroovyCommonUtil {
 
 
     public static Object invokeMethod(String scriptName, String methodName, Object... params) throws Exception {
-        Object ret = null;
-        Class scriptClass = null;
-        GroovyObject scriptInstance = null;
+        Object ret;
+        Class scriptClass;
+        GroovyObject scriptInstance;
 
         try {
             scriptClass = groovyScriptEngine.loadScriptByName(scriptName);
@@ -46,7 +45,7 @@ public class GroovyCommonUtil {
         }
 
         try {
-            ret = (String) scriptInstance.invokeMethod(methodName, params);
+            ret = scriptInstance.invokeMethod(methodName, params);
         } catch (IllegalArgumentException e) {
             log.warn("执行方法" + methodName + "参数出现异常, 参数为" + params, e);
             throw new Exception("调用方法[" + methodName + "]失败，因参数不合法");
@@ -56,16 +55,5 @@ public class GroovyCommonUtil {
         }
 
         return ret;
-    }
-
-
-    public static void main(String[] args) throws Exception {
-        //无参数调用
-        String result = (String) GroovyCommonUtil.invokeMethod("hello2.groovy", "helloWithoutParam");
-        System.out.println("testGroovy4: " + result + "\n");
-
-        Person person = new Person("wchi", "nanjing", 30);
-        String result1 = (String) GroovyCommonUtil.invokeMethod("hello2.groovy", "helloWithParam", person, "testGroovy4");
-        System.out.println("testGroovy4: " + result1 + "\n");
     }
 }
