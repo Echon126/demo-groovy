@@ -3,7 +3,6 @@ import java.text.SimpleDateFormat
 import java.text.ParseException
 
 class RuntimeContext {
-    //以下是英文部分变量,一般通过程序自动装载得到,用于从数据库或其他持久层加载业务数据
     def collegeName = "EMBA业余大学"
     def tuitionFee = 80000
     def startDate = '2016/02/01', finishDate = '2016/09/01'
