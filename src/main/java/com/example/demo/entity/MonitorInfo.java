@@ -40,13 +40,9 @@ public class MonitorInfo implements Serializable {
     private Integer operator;
 
     /**
-     * 正常监控信息和异常错误信息
-     */
-    private Integer dataType;
-
-
-    /**
      * 标识是否为一个完整的监控流程
      */
     private Boolean status;
+
+
 }

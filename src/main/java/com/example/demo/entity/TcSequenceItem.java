@@ -3,7 +3,6 @@ package com.example.demo.entity;
 import lombok.Builder;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,20 +12,21 @@ import java.util.Date;
  *
  * <b>@author: zwj
  *
- * <b>@create: 2020-03-04 11:34
+ * <b>@create: 2020-03-04 17:14
  **/
 @Data
 @Builder(toBuilder = true)
-public class TcData implements Serializable {
-    private static final long serialVersionUID = 2240212060914266461L;
+public class TcSequenceItem {
     private Integer id;
-    private String mid;
-    private String commandCode;
+    private Integer sequenceId;
     private String commandName;
+    private String commandCode;
     private String commandData;
-    private String dynamicData;
-    private Integer typeCode;
+    private boolean isPause;
+    private Integer intervalTime;
+    private String typeCode;
     private Integer status;
     private Integer creator;
     private Date createTime;
+
 }

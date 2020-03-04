@@ -1,6 +1,6 @@
 package com.example.demo.interfaces;
 
-import com.example.demo.entity.TcData;
+import com.example.demo.entity.TcCommandData;
 import com.example.demo.entity.dto.TcSendDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProcessControlService extends AbstractControl {
 
-    public static String createTcData(TcData tcData) {
+    public   String createTcData(TcCommandData tcData) {
         return null;
     }
 
-    public void tmArgumentCompare(TcSendDto dto) {
+    public boolean tmArgumentCompare(TcSendDto dto) {
         log.info("遥控数据发送,遥测参数比判");
+        return false;
     }
 
     public void largeLoopCompare(TcSendDto dto) {

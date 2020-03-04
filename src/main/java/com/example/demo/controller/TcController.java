@@ -27,9 +27,13 @@ public class TcController {
         this.processControlService.startScheduling(TcSendDto.builder().sid("西安站")
                 .mid("卫星一号")
                 .commandCode("T001")
-                .commandData("ABCDNDHD").isJudge(false).sendMode(1).build());
+                .isJudge(false).sendMode(1).build());
 
         return RetResponse.makeOKRsp();
     }
 
+
+    //TODO 人机调度  restful接口
+    //TODO 自动化模块 rpc接口
+    //TODO 工作流调度 rpc接口
 }

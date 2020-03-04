@@ -22,7 +22,6 @@ public class TcSendDto implements Serializable {
     private String sid;
     private String mid;
     private String commandCode;
-    private String commandData;
     private Boolean isJudge;
     private Integer sendMode;
     private Integer creator;
