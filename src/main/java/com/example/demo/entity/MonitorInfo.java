@@ -22,7 +22,7 @@ public class MonitorInfo implements Serializable {
     /**
      * 监控标识
      */
-    private String uuid;
+    private String UUID;
 
     /**
      * 监控信息，为json字符串

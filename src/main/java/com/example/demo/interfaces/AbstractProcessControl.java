@@ -3,9 +3,11 @@ package com.example.demo.interfaces;
 import com.example.demo.entity.MonitorInfo;
 import com.example.demo.entity.TcCommandData;
 import com.example.demo.entity.dto.TcSendDto;
+import com.example.demo.interfaces.impl.TcBaseConfigServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,7 +20,7 @@ import java.util.List;
  * <b>@create: 2020-03-04 11:39
  **/
 @Slf4j
-public abstract class AbstractControl {
+public abstract class AbstractProcessControl {
     public final static String leadCode = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     public boolean isInterrupt;
     public boolean isStop;
@@ -29,13 +31,14 @@ public abstract class AbstractControl {
 
     //指令发送
     public boolean sendTcCommand(TcSendDto dto) {
-        log.info("遥控数据发送,发送的数据为:{}", dto);
-        monitoringService.submitMonitorInfo(MonitorInfo.builder().uuid("1111").build());
+        this.monitoringService.submit(dto.getMid(), MonitorInfo.builder().UUID("1111").build());
         return true;
     }
 
     //创建遥控数据
-    public abstract String createTcData(TcCommandData tcData);
+    public String createTcData(TcCommandData tcData) {
+        return null;
+    }
 
     //大环路比对
     public abstract void largeLoopCompare(TcSendDto dto);
@@ -64,35 +67,4 @@ public abstract class AbstractControl {
             startScheduling(dto);
         }
     }
-
-    public class initConfig {
-        private String configName;
-        private String configRules;
-        private String rulesExpress;
-
-        public String getConfigName() {
-            return configName;
-        }
-
-        public void setConfigName(String configName) {
-            this.configName = configName;
-        }
-
-        public String getConfigRules() {
-            return configRules;
-        }
-
-        public void setConfigRules(String configRules) {
-            this.configRules = configRules;
-        }
-
-        public String getRulesExpress() {
-            return rulesExpress;
-        }
-
-        public void setRulesExpress(String rulesExpress) {
-            this.rulesExpress = rulesExpress;
-        }
-    }
-
 }
