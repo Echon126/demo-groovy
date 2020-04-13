@@ -18,7 +18,7 @@ class DemoApplicationTests {
         RedisLock.lock("ming");
         //继续加锁
         try {
-            RedisLock.lock("ming");
+            RedisLock.lock("ming",1l);
         } catch (RuntimeException e) {
             e.printStackTrace();
         }

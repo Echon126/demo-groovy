@@ -26,7 +26,7 @@ public class RedisLock {
     }
 
     public static void lock(String key, String value, Long expire) {
-        log.debug("加锁，key{},value{},超时时间:{}s", key, value, expire);
+        log.debug("加锁，key{},value{},超时时间:{}", key, value, expire);
         if (!Objects.requireNonNull(getClient().opsForValue().setIfAbsent(key, value, expire, TimeUnit.SECONDS), "加锁返回异常")) {
             throw new RuntimeException("加锁失败、已经锁定");
         }
@@ -39,6 +39,6 @@ public class RedisLock {
 
 
     private static StringRedisTemplate getClient() {
-        return SpringUtil.getBean(StringRedisTemplate.class);
+        return SpringUtil.getBeanByType(StringRedisTemplate.class);
     }
 }
