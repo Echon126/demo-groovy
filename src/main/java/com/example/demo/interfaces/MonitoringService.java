@@ -1,21 +1,40 @@
 package com.example.demo.interfaces;
 
+import com.example.demo.entity.Context;
 import com.example.demo.entity.MonitorInfo;
+import groovy.lang.GroovyClassLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
-public interface MonitoringService {
+@Component
+public class MonitoringService {
+    private static Logger log = LoggerFactory.getLogger(MonitoringService.class);
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @SuppressWarnings("unchecked")
     public void submitMonitorInfo(MonitorInfo monitorInfo) {
         log.info("监控日志");
         redisTemplate.opsForHash().put("xxx", "xxx", "xxxx");
     }
-    //提交监控信息
-    void submit(String mid, MonitorInfo monitorInfo);
 
-    //获取监控信息列表
-    List<MonitorInfo> list(String mid);
+    //提交监控信息
+    void submit(String mid, MonitorInfo monitorInfo) {
+    }
+
 
     public static void main(String[] args) throws IOException {
         //解析Groovy模板文件
@@ -73,9 +92,16 @@ public interface MonitoringService {
             log.error("error...");
         }
     }
+
     //获取单个监控信息
-    MonitorInfo monitorInfo(String mid, String hashKey);
+    MonitorInfo monitorInfo(String mid, String hashKey) {
+        return null;
+    }
+
 
     //删除监控信息
-    Long delete(String mid, String key, String hashKey);
+    Long delete(String mid, String key, String hashKey) {
+        return null;
+    }
+
 }
