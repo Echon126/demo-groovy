@@ -1,4 +1,4 @@
-package com.example.demo.utils;
+package com.example.demo.groovy;
 
 import groovy.lang.GroovyObject;
 import groovy.util.GroovyScriptEngine;
@@ -27,6 +27,7 @@ public class GroovyCommonUtil {
             groovyScriptEngine = new GroovyScriptEngine(root);
         } catch (IOException e) {
             e.printStackTrace();
+            log.error("创建groovy执行引擎时发生异常", e);
         }
     }
 

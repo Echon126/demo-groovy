@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class ProcessControlService extends AbstractControl {
+public class ProcessControlService extends AbstractProcessControl {
 
-    public   String createTcData(TcCommandData tcData) {
+    public String createTcData(TcCommandData tcData) {
         return null;
     }
 
@@ -20,10 +20,6 @@ public class ProcessControlService extends AbstractControl {
 
     public void largeLoopCompare(TcSendDto dto) {
         log.info("遥控数据发送,大环路比对");
-      /*  boolean b1 = this.sendTcCommand(TcSendDto.builder().commandCode("xxx").commandData("xxxx").build());
-        if (b1) {
-            log.info("发送成功，记录日志");
-        }*/
     }
 
 
