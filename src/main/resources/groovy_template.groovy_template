@@ -1,0 +1,9 @@
+import com.example.demo.interfaces.*
+
+
+class %s implements EngineGroovyModuleRule {
+@Override
+boolean run ( Object context ) {
+%s //业务执行逻辑：可配置化
+}
+}

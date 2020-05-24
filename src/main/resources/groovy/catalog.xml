@@ -1,0 +1,15 @@
+<catalog>
+    <chain name="life-work">
+        <command id="breakfast" className="com.example.demo.workflow.chain.step.BreakfastCommand"/>
+        <script expression="context.isHoliday">
+            <command id="play" className="com.example.demo.workflow.chain.step.PlayCommand"/>
+        </script>
+        <script expression="!context.isHoliday">
+            <command id="go-to-company" className="com.example.demo.workflow.chain.step.GotoCompanyCommand"/>
+            <command id="work" className="com.example.demo.workflow.chain.step.WorkCommand"/>
+            <command id="lunch" className="com.example.demo.workflow.chain.step.LunchCommand"/>
+            <command id="work" className="com.example.demo.workflow.chain.step.WorkCommand"/>
+        </script>
+        <command id="go-home" className="com.example.demo.workflow.chain.step.GohomeCommand"/>
+    </chain>
+</catalog>
