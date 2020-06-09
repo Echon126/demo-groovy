@@ -1,3 +1,4 @@
+/*
 package com.example.demo.groovy;
 
 import com.dstz.base.core.util.AppUtil;
@@ -13,10 +14,12 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 import java.util.Map.Entry;
 
+*/
 /**
  * 脚本引擎用于执行groovy脚本。<br/>
  * 实现了IScript接口的类。 可以在脚本中使用。
- */
+ *//*
+
 @Component
 public class GroovyScriptEngine implements IGroovyScriptEngine, ApplicationListener<ContextRefreshedEvent> {
 
@@ -83,3 +86,4 @@ public class GroovyScriptEngine implements IGroovyScriptEngine, ApplicationListe
         }
     }
 }
+*/
